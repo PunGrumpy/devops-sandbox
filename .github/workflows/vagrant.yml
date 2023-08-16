@@ -16,11 +16,6 @@ jobs:
       - name: 📦 Update apt
         run: sudo apt-get update -y
 
-      - name: 📦 Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: 3.10
-
       - name: 🐍 Install Vagrant
         run: |
           wget https://releases.hashicorp.com/vagrant/2.3.7/vagrant_2.3.7_x86_64.deb
