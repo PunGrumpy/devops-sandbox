@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
         devops.vm.provider "virtualbox" do |v|
             v.memory = 4096
             v.cpus = 2
-            v.name = "devops-sandbox
+            v.name = "devops-sandbox"
         end
     end
 end
