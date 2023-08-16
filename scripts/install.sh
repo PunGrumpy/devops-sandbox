@@ -11,6 +11,9 @@ fi
 TERRAFORM_VERSION="1.5.5"
 PACKER_VERSION="1.9.2"
 
+# Change user
+su - vagrant
+
 # Create SSH key
 [[ ! -f /home/vagrant/.ssh/devops ]] \
     && mkdir -p /home/vagrant/.ssh \
@@ -19,15 +22,15 @@ PACKER_VERSION="1.9.2"
 
 # Install packages
 if [ ${REDHAT_BASED} ]; then
-    yum -y update
-    yum -y install docker ansible git unzip wget python3-pip
+    sudo yum -y update
+    sudo yum -y install docker ansible git unzip wget python3-pip
 else
-    apt-get update
-    apt-get -y install docker.io ansible git unzip wget python3-pip
+    sudo apt-get update
+    sudo apt-get -y install docker.io ansible git unzip wget python3-pip
 fi
 
 # Add Docker privileges
-usermod -aG docker vagrant
+sudo usermod -aG docker vagrant
 
 # Install AWS CLI and EB CLI
 pip3 install -U awscli
