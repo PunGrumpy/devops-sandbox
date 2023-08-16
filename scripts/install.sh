@@ -12,10 +12,10 @@ TERRAFORM_VERSION="1.5.5"
 PACKER_VERSION="1.9.2"
 
 # Create SSH key
-[[ ! -f /home/ubuntu/.ssh/devops ]] \
-    && mkdir -p /home/ubuntu/.ssh \
-    && ssh-keygen -f /home/ubuntu/.ssh/devops -t rsa -N '' \
-    && chown -R ubuntu:ubuntu /home/ubuntu/.ssh
+[[ ! -f /home/vagrant/.ssh/devops ]] \
+    && mkdir -p /home/vagrant/.ssh \
+    && ssh-keygen -f /home/vagrant/.ssh/devops -t rsa -N '' \
+    && chown -R vagrant:vagrant /home/vagrant/.ssh
 
 # Install packages
 if [ ${REDHAT_BASED} ]; then
@@ -27,7 +27,7 @@ else
 fi
 
 # Add Docker privileges
-usermod -aG docker ubuntu
+usermod -aG docker vagrant
 
 # Install AWS CLI and EB CLI
 pip3 install -U awscli
