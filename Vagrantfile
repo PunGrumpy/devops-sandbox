@@ -6,9 +6,9 @@ Vagrant.configure("2") do |config|
         devops.vm.provision "shell", path: "scripts/install.sh"
       
         devops.vm.provider "virtualbox" do |v|
-            v.vmx["memsize"] = "4096"
-            v.vmx["numvcpus"] = "2"
-            v.vmx["displayname"] = "devops-sandbox"
+            v.memory = 4096
+            v.cpus = 2
+            v.name = "devops-sandbox
         end
     end
 end
