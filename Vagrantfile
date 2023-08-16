@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
     config.vm.define "devops-sandbox" do |devops|
         devops.vm.box = "ubuntu/jammy64"
-        devops.vm.network "private_network", ip: "192.168.199.9", type: "dhcp"
+        devops.vm.network "private_network", type: "dhcp"
         devops.vm.hostname = "devops-sandbox"
         devops.vm.provision "shell", path: "scripts/install.sh"
       
