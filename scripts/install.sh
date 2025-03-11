@@ -15,10 +15,11 @@ PACKER_VERSION="1.9.2"
 su - vagrant
 
 # Create SSH key
-[[ ! -f /home/vagrant/.ssh/devops ]] \
-    && mkdir -p /home/vagrant/.ssh \
-    && ssh-keygen -f /home/vagrant/.ssh/devops -t rsa -N '' \
-    && chown -R vagrant:vagrant /home/vagrant/.ssh
+if [ ! -f /home/vagrant/.ssh/devops ]; then
+    mkdir -p /home/vagrant/.ssh
+    sudo -u vagrant ssh-keygen -f /home/vagrant/.ssh/devops -t ed25519 -N ''
+    chown -R vagrant:vagrant /home/vagrant/.ssh
+fi
 
 # Install packages
 if [ ${REDHAT_BASED} ]; then
